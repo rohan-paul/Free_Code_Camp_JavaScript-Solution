@@ -6,10 +6,10 @@ function reverseString(str) {
 	return newStr;
 }
 
-reverseString('hello');
+alert(reverseString('hello'));
 
 function reverseStringShort(str) {
 	return str.split('').reverse().join('');
 }
 
-reverseStringShort('hello');
+alert(reverseStringShort('hello'));
