@@ -1,3 +1,5 @@
+/*Problem Statement - Return the factorial of the provided integer. If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.*/
+
   function factorialize(num) {
         if (num < 0) {
             return 'undefined';
@@ -9,4 +11,4 @@
         return fact;
     }
 
-    alert(factorialize(6));
+    console.log(factorialize(6));
