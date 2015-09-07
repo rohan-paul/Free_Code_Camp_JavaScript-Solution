@@ -2,10 +2,10 @@
 
 
 function reverseStr(str) {
-    var revs = '';
+    var reverse = '';
     for(var i = str.length - 1; i >= 0; i--)
-    revs += str[i];
-    return revs;
+    reverse += str[i];
+    return reverse;
 }
 
 console.log(reverseStr("David"));
