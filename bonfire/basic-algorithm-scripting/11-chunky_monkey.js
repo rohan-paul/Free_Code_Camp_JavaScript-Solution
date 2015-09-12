@@ -2,7 +2,7 @@
 
 
 function chunk(arr, size) {
-    // Break it up.
+
     return arr;
 }
 
