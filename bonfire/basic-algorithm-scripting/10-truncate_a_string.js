@@ -2,8 +2,12 @@
 
 
 function truncate(str, num) {
-    // Clear out that junk in your trunk
-    return str;
+    if(str.length <= num) {
+        return str;
+    } else {
+        return (str.substr(str, (num-3)) + "...");
+    }
+
 }
 
-truncate('A-tisket a-tasket A green and yellow basket', 11);
+console.log(truncate('A-tisket a-tasket A green and yellow basket', 11));
