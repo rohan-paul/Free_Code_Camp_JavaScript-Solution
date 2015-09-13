@@ -1,0 +1,4 @@
+load:
+  - bonfire/basic-algorithm-scripting/src/Greeter.js
+test:
+  - bonfire/basic-algorithm-scripting/test/GreeterTest.js
