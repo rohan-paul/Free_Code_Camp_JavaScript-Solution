@@ -1,6 +1,0 @@
-load:
-  - bonfire/basic-algorithm-scripting/src/Greeter.js
-#  - bonfire/basic-algorithm-scripting/src/15-where_art_thou.js
-test:
-  - bonfire/basic-algorithm-scripting/test/GreeterTest.js
-#  - bonfire/basic-algorithm-scripting/src/15-where_art_thouTest.js

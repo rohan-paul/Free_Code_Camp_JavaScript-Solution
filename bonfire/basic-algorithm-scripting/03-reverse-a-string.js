@@ -8,4 +8,11 @@ function reverseStr(str) {
     return reverse;
 }
 
-console.log(reverseStr("David"));
+console.log(reverseStr("Paul"));
+
+var chai = require('chai');
+var expect = chai.expect;
+
+expect(reverseStr('hello')).to.be.a('String');
+expect(reverseStr('hello')).to.equal('olleh');
+expect(reverseStr('Hi from planet Earth')).to.equal('htraE tenalp morf iH');
