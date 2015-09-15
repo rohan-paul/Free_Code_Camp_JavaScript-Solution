@@ -9,3 +9,13 @@ function findLongestWord(str) {
 }
 
 console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+
+
+//Passing Tests
+
+var chai = require('chai');
+var expect = chai.expect;
+
+expect(findLongestWord('The quick brown fox jumped over the lazy dog')).to.be.a('Number');
+expect(findLongestWord('The quick brown fox jumped over the lazy dog')).to.equal(6);
+expect(findLongestWord('To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.')).to.equal(14);

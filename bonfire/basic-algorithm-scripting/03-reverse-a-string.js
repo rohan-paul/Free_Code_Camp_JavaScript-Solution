@@ -10,6 +10,8 @@ function reverseStr(str) {
 
 console.log(reverseStr("Paul"));
 
+//Passing Tests
+
 var chai = require('chai');
 var expect = chai.expect;
 

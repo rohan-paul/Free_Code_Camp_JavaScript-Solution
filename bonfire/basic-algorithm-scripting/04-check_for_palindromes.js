@@ -5,7 +5,7 @@ You'll need to remove punctuation and turn everything lower case in order to che
 function palindrome(myString) {
 
     /*remove punctuation and turn lower case in order to compare 2 strings*/
-    var cleanString = myString.replace(/[^A-Z0-9]/ig, "").toLowerCase();
+    var cleanString = myString.replace(/[^a-zA-Z0-9]/ig, "").toLowerCase();
 
     /*now reverse the cleanString to compare*/
     var reverseCleanString = cleanString.split('').reverse().join('');
@@ -17,4 +17,19 @@ function palindrome(myString) {
     }
 }
 
-palindrome("eye");
+
+//Passing Tests
+
+console.log(palindrome("eye"));
+
+var chai = require('chai');
+var expect = chai.expect;
+var assert = require('assert');
+
+
+expect(palindrome("eye")).to.be.a("boolean");
+assert.deepEqual(palindrome("eye"), true);
+assert.deepEqual(palindrome("race car"), true);
+assert.deepEqual(palindrome("This is not a palindrome"), false);
+assert.deepEqual(palindrome("Are we not drawn onward, we few, drawn onward to new era"), true);
+assert.deepEqual(palindrome("Paul"), false);

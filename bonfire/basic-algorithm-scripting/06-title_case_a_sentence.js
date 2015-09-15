@@ -18,4 +18,14 @@ C) $1 regular expression property can be used as a function argument, can be use
 D) So, in the above, I am turning the entire string into lower case and then each regexp match group to upper case using replace function.
 */
 
-console.log(("I'm of little tea pot").toTitleCase());
+console.log(("I'm the little tea pot").toTitleCase());
+
+//Passing Tests
+
+var chai = require('chai');
+var expect = chai.expect;
+
+expect(("I'm the little tea pot").toTitleCase()).to.be.a('String');
+expect(("I'm the little tea pot").toTitleCase()).to.equal("I'm The Little Tea Pot");
+expect(("I'm a little tea pot").toTitleCase()).to.equal("I'm A Little Tea Pot");
+expect(("GREAT MINDS DISCUSS IDEAS").toTitleCase()).to.equal("Great Minds Discuss Ideas");
