@@ -13,7 +13,7 @@ function sumAll(arr) {
         return Math.min.apply(null, arr);
     };
 
-    // If I don't use 
+    // If I don't use the apply method, the final result will only addup the 2 given elements of the original array.
 
     var secondMaxNumber = MaxNumberFromOriginalArray(arr) - 1;
     var secondMinNumber = MinNumberFromOriginalArray(arr) + 1;
@@ -34,3 +34,14 @@ function sumAll(arr) {
 }
 
 console.log(sumAll([1,4]));
+
+// Passing Tests
+
+var chai = require('chai');
+var expect = chai.expect;
+
+expect(sumAll([1, 4])).to.be.a('Number');
+expect(sumAll([1, 4])).to.equal(10);
+expect(sumAll([4, 1])).to.equal(10);
+expect(sumAll([5, 10])).to.equal(45);
+expect(sumAll([10, 5])).to.equal(45);

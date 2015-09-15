@@ -19,14 +19,7 @@ console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [10
 
 var chai = require('chai');
 var expect = chai.expect;
-//var should = require('should');
-//var should = chai.should;
 var assert = require('assert');
 
 expect(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]])).to.be.a('array');
-//expect(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]])).to.equal([ 5, 27, 39, 1001 ]);
-
-expect(largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]])).to.equal([9,35,97,1000000]);
-//assert(largestOfFour([[4, 9, 1, 3], [13, 35, 18, 26], [32, 35, 97, 39], [1000000, 1001, 857, 1]]).should.eql([9,35,97,1000000]));
-
-//expect(("I'm the little tea pot").toTitleCase()).to.equal("I'm The Little Tea Pot");
+assert.deepEqual(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]), [ 5, 27, 39, 1001 ]);

@@ -18,6 +18,6 @@
   var chai = require('chai');
   var expect = chai.expect;
 
-  expect(factorialize(5)).to.be.a('Number');
+  expect(factorialize(5)).to.be.a("Number");
   expect(factorialize(5)).to.equal(120);
   expect(factorialize(10)).to.equal(3628800);
