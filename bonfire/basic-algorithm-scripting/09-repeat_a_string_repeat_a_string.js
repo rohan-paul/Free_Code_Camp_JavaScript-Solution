@@ -13,3 +13,9 @@ function repeat (str, num) {
 }
 
 console.log(repeat('abc', 3));
+
+var assert = require('assert');
+
+assert.strictEqual(repeat('*', 3), '***', 'should repeat a string n times');
+assert.strictEqual(repeat('abc', 3), 'abcabcabc', 'should repeat a string n times');
+assert.strictEqual(repeat('abc', -2), '', 'should return an empty string for negative numbers');
