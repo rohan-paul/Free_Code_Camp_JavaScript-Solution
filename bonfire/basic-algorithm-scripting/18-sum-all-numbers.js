@@ -16,7 +16,7 @@ function sumAll(arr) {
     /* My interpretation of using the apply() in the above -
     A) If I don't use the apply method, or use the apply method without "null" as its first argument, the final result will only addup the 2 given elements of the original array.
 
-     Now, both call() and apply() are methods we can use to assign the this pointer for the duration of a method invocation
+     Now, both call() and apply() are methods we can use to assign the <this> pointer for the duration of a method invocation, and here, because I am passing an array to the Math.max function, will have to use apply().
 
     B) The apply() method invokes the function Math.max() and uses its first parameter as the <this> pointer inside the body of the function. In other words - we've told the runtime what object to reference as <this> while executing inside of function Math.max
 
