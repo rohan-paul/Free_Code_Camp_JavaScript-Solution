@@ -11,3 +11,13 @@ function truncate(str, num) {
 }
 
 console.log(truncate('A-tisket a-tasket A green and yellow basket', 11));
+
+//Passing Tests
+
+var chai = require('chai');
+var expect = chai.expect;
+var assert = require('assert');
+
+expect(truncate('A-tisket a-tasket A green and yellow basket', 11)).to.eqls('A-tisket...');
+assert(truncate('A-tisket a-tasket A green and yellow basket', 'A-tisket a-tasket A green and yellow basket'.length) === 'A-tisket a-tasket A green and yellow basket', 'should not truncate if string is = length');
+assert.strictEqual(truncate('A-tisket a-tasket A green and yellow basket', 'A-tisket a-tasket A green and yellow basket'.length + 2), 'A-tisket a-tasket A green and yellow basket', 'should not truncate if string is < length');
