@@ -17,3 +17,13 @@ function mutation(arr) {
 }
 
 console.log(mutation(['hello', 'hey']));
+
+//Passing Tests
+
+var chai = require('chai');
+var expect = chai.expect;
+//var assert = require('assert');
+
+expect(mutation(['hello', 'hey'])).to.be.false;
+expect(mutation(['hello', 'Hello'])).to.be.true;
+expect(mutation(['ABCcdef', 'Dd'])).to.be.true;
