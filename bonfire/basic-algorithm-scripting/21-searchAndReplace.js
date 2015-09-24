@@ -11,7 +11,7 @@ NOTE: Preserve the case of the original word when you are replacing it. For exam
 function replace(str, before, after) {
     var splitSentenceArray = str.split(' ');
 
-    if (before.charAt(0) === before.charAt(0).toUpperCase()){
+    if (before.charAt(0) === before.charAt(0).toUpperCase()) {
         after = after.charAt(0).toUpperCase() + after.substring(1).toLowerCase();
     } else {
         after = after.substring(0).toLowerCase();
