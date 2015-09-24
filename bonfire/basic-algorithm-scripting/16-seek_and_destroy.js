@@ -14,7 +14,7 @@ function destroyer(arr) {
 
 console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
 
-//Code explanation - The arguments.length property provides the number of arguments actually passed to a function. This can be more or less than the defined parameter count. So with the second for loop, I am targeting each of the consecutive argument passed to the destroyer function and then comparing if the original array's element is equal to that value of the second or consecutive arguments. Noting that the second for loop is run for each of the i values of the first for loop.
+// Code explanation for my own reference and learning  - The arguments.length property provides the number of arguments actually passed to a function. This can be more or less than the defined parameter count. So with the second for loop, I am targeting each of the consecutive argument passed to the destroyer function and then comparing if the original array's element is equal to that value of the second or consecutive arguments. Noting that the second for loop is run for each of the i values of the first for loop.
 
 
 // Passing Tests
