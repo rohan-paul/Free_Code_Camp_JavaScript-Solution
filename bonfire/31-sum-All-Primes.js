@@ -17,8 +17,6 @@ function isPrime(num) {
    } return true;
 }
 
-console.log(isPrime(2));
-
 function sumAllPrimes (num) {
     var sumPrimes = 0;
     if(num < 2) {
@@ -34,3 +32,12 @@ function sumAllPrimes (num) {
     
 }
 console.log(sumAllPrimes(10));
+
+// Passing test
+
+var chai = require('chai');
+var expect = chai.expect;
+// var assert = require('assert');
+
+expect(sumAllPrimes(10)).to.be.a('number');
+expect(sumAllPrimes(10)).to.equal(17);
