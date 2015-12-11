@@ -16,7 +16,6 @@ function smallestCommonMultiple(array) {
         newArray.push(i);
     }
 
-
     var commonMultiple;
     var loopCounter = 1;
     var incrementalMultiplier;
