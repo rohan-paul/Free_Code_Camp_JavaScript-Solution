@@ -5,7 +5,7 @@ function chunk(arr, size) {
     while (arr.length > size) {
         newArr.push(arr.splice(0, size));
     }
-    if (arr.length) {
+    if (arr.length <= size) {
         newArr.push(arr);
     }
     return newArr;
