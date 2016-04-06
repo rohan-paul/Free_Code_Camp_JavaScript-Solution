@@ -4,7 +4,7 @@ You'll need to remove punctuation and turn everything lower case in order to che
 
 function palindrome(myString) {
 
-    /*remove punctuation and turn lower case in order to compare 2 strings*/
+    /*remove punctuation (i.e. replace any character which is not a letter or number with empty chracter) and turn lower case in order to compare 2 strings*/
     var cleanString = myString.replace(/[^a-zA-Z0-9]/ig, "").toLowerCase();
 
     /*now reverse the cleanString to compare*/
@@ -16,7 +16,6 @@ function palindrome(myString) {
         return false;
     }
 }
-
 
 //Passing Tests
 

@@ -1,7 +1,7 @@
 /*Return the length of the longest word in the provided sentence. Your response should be a number.*/
 
 function findLongestWord(str) {
-    str = str.replace(/[^\w]/g, ' ').split(' ');
+    str = str.replace(/[^\w]/g, ' ').split(' ');  // First replace all not word group with a space. Then the split() method will split the replaced string into an array separated by the spearator (a single space here).
     var longest = str.reduce(function(a, b){
        return (a.length >= b.length ? a:b);
     });
