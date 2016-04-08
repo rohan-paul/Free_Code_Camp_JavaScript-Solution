@@ -1,13 +1,12 @@
 /*Return an array consisting of the largest number from each provided sub-array. For simplicity, the provided array will contain exactly 4 sub-arrays. Remember, you can iterate through an array with a simple for loop, and access each member with array syntax arr[i] . If you are writing your own Chai.js tests, be sure to use a deep equal statement instead of an equal statement when comparing arrays.*/
 
 
-function largestOfFour(givenArray) {
+function largestOfFour(arr) {
     var largestNum = [];
-    for (var i = 0; i < givenArray.length; i++) {
-        var subArray = givenArray[i];
+    for (var i = 0; i < arr.length; i++) {
+        var subArray = arr[i];
           var largest = Math.max.apply(Math, subArray);
            largestNum.push(largest);
-
     }
     return largestNum;
 }

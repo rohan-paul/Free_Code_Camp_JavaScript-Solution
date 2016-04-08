@@ -5,17 +5,16 @@ function truncate(str, num) {
     if(str.length <= num) {
         return str;
     } else {
-        return (str.substr(str, (num-3)) + "...");
+        return (str.substr(0, (num-3)) + "...");
     }
-
 }
 
 console.log(truncate('A-tisket a-tasket A green and yellow basket', 11));
 
 //Passing Tests
 
-//var chai = require('chai');
-//var expect = chai.expect;
+var chai = require('chai');
+var expect = chai.expect;
 var assert = require('assert');
 
 expect(truncate('A-tisket a-tasket A green and yellow basket', 11)).to.eqls('A-tisket...');

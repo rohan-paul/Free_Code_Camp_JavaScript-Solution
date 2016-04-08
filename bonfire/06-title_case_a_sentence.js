@@ -7,15 +7,24 @@ String.prototype.toTitleCase = function()
         function($1) { return $1.toUpperCase(); });
 }
 
-/*A) /\s(.)/g  - Captures any single character after a space.
+/*
 
- /^(.) - Captures the very first character of the whole string. i.e. this is input beginning specifier and capture whatever character is exactly after it.
+A) (a|b) means a or b so /^(.)|\s(.)/g means /^(.)/ or /\s(.)/
 
-B) $n represents the nth capture group of the regular expression. $1 is the first group from my regular expression, $2 is the second.
+B) /\s(.)/g  - Captures any single character after a space.
 
-C) $1 regular expression property can be used as a function argument, can be used inside the function and is updated internally by the replace method after the function executes.
+C) /^(.) - Captures the very first character of the whole string. i.e. this is input beginning specifier and capture whatever character is exactly after it.
 
-D) So, in the above, I am turning the entire string into lower case and then each regexp match group to upper case using replace function.
+ . (a single dot) means any character except new line (\n)
+
+ and ^ means Start of string, or start of line in multi-line pattern
+ (https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/)
+
+D) $n represents the nth capture group of the regular expression. $1 is the first group from my regular expression, $2 is the second.
+
+E) $1 regular expression property can be used as a function argument, can be used inside the function and is updated internally by the replace method after the function executes.
+
+F) So, in the above, I am turning the entire string into lower case and then each regexp match group to upper case using replace function.
 */
 
 console.log(("I'm the little tea pot").toTitleCase());
