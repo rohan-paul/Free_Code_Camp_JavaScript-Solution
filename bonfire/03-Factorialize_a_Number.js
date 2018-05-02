@@ -22,7 +22,7 @@
   expect(factorialize(5)).to.equal(120);
   expect(factorialize(10)).to.equal(3628800);
 
-// Recursive solution to find factorial of a number
+// Alternative Recursive solution to find factorial of a number
 
 function factorial(num) {
   return (num === 1 ? 1 : num * factorial(num - 1));

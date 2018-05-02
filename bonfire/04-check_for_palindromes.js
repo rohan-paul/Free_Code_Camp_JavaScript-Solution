@@ -19,7 +19,7 @@ function palindrome(myString) {
 
 //Passing Tests
 
-console.log(palindrome("eye"));
+// console.log(palindrome("eye"));
 
 var chai = require('chai');
 var expect = chai.expect;
@@ -32,3 +32,21 @@ assert.deepEqual(palindrome("race car"), true);
 assert.deepEqual(palindrome("This is not a palindrome"), false);
 assert.deepEqual(palindrome("Are we not drawn onward, we few, drawn onward to new era"), true);
 assert.deepEqual(palindrome("Paul"), false);
+
+// Alernative by dividing the array in 2 parts and checking corresponding elements
+
+function isPalindrome (str) {
+
+    let cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/ig, '');
+
+    let len = cleanStr.length;
+
+    for (let i = 0; i <  len/2; i++) {
+        if (cleanStr[i] !== cleanStr[len - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isPalindrome("eye"));

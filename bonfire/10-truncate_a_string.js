@@ -5,9 +5,10 @@ function truncate(str, num) {
     if(str.length <= num) {
         return str;
     } else {
-        return (str.substr(0, (num-3)) + "...");
+        return (str.substr(str, (num-3)) + "...");
     }
 }
+// Learning note - In the substr() method if the first argument passed is the original string, then it starts truncating the string from 0 index position of the string
 
 console.log(truncate('A-tisket a-tasket A green and yellow basket', 11));
 
