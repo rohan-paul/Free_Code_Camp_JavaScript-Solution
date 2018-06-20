@@ -17,10 +17,13 @@ function palindrome(myString) {
     }
 }
 
-//Passing Tests
+// [^A-Z] matches anything that is not enclosed between A and Z
+// [^a-z] matches anything that is not enclosed between a and z
+// [^0-9] matches anything that is not enclosed between 0 and 9
 
 // console.log(palindrome("eye"));
 
+//Passing Tests
 var chai = require('chai');
 var expect = chai.expect;
 var assert = require('assert');
@@ -33,15 +36,15 @@ assert.deepEqual(palindrome("This is not a palindrome"), false);
 assert.deepEqual(palindrome("Are we not drawn onward, we few, drawn onward to new era"), true);
 assert.deepEqual(palindrome("Paul"), false);
 
-// Alernative by dividing the array in 2 parts and checking corresponding elements
+// Alernative by dividing the array in 2 parts and checking corresponding elements. Half-indexing (len/2) has benefits when processing large strings. We check the end from each part and divide the number of iterations inside the FOR loop by two.
 
-function isPalindrome (str) {
+function isPalindrome2 (str) {
 
     let cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/ig, '');
 
-    let len = cleanStr.length;
+    let len = Math.floor(cleanStr.length / 2);
 
-    for (let i = 0; i <  len/2; i++) {
+    for (let i = 0; i <  len; i++) {
         if (cleanStr[i] !== cleanStr[len - 1 - i]) {
             return false;
         }
@@ -49,4 +52,11 @@ function isPalindrome (str) {
     return true;
 }
 
-console.log(isPalindrome("eye"));
+// console.log(isPalindrome2("eye"));
+
+// The same solution like the very first one, but in a single line and without cleaning the string with regexp
+isPalindrome1 = str => {
+    return str === str.split('').reverse().join('');
+}
+
+console.log(isPalindrome1('eye'));

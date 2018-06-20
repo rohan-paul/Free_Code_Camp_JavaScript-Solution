@@ -1,14 +1,19 @@
 /*Return the length of the longest word in the provided sentence. Your response should be a number.*/
 
 function findLongestWord(str) {
-    var strArray = str.replace(/[^\w]/g, ' ').split(' ');  // First replace all not word group with a space. Then the split() method will split the replaced string into an array separated by the spearator (a single space here).
-    var longest = strArray.reduce(function(a, b){
-       return (a.length >= b.length ? a:b);
+
+  // First replace all no-word group with a single space. Now given, I have a string of words separated by single-space. So I invoke the split() method which will split the replaced string into an array separated by the spearator (a single space here). If I don’t add the space as the separator to the split() method, I will have the output as an array of single letters for the entire string
+
+    var strArray = str.replace(/[^\w]/g, ' ').split(' ');
+
+    var longest = strArray.reduce((a, b) => {
+       return (a.length >= b.length ? a : b);
     });
+
     return longest.length;
 }
 
-console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
 
 
 //Passing Tests
@@ -34,4 +39,16 @@ function findLongestWord(str) {
   return longestWord;
 }
 
-console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+// console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // => 6
+
+longestWord1 = str => {
+
+  let cleanStrArr = str.replace(/[^\W]/g, ' ').split(' ');
+
+  let sortedStrArr = cleanStrArr.sort((a, b) => b.length - a.length )
+
+  return sortedStrArr[0].length;
+
+}
+
+console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // => 6
