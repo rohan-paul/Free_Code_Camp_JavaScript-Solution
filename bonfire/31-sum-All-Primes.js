@@ -29,7 +29,7 @@ function sumAllPrimes (num) {
         }
     }
     return sumPrimes;
-    
+
 }
 console.log(sumAllPrimes(10));
 

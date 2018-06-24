@@ -41,14 +41,20 @@ function findLongestWord(str) {
 
 // console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // => 6
 
-longestWord1 = str => {
+longestWord1 = str => str.split(' ').sort((a, b) => b.length - a.length )[0].length;
 
-  let cleanStrArr = str.replace(/[^\W]/g, ' ').split(' ');
+// console.log(longestWord1('The quick brown fox jumped over the lazy dog')); // => 6
 
-  let sortedStrArr = cleanStrArr.sort((a, b) => b.length - a.length )
+// In the above solution, I just could not combine the replace() method within the same line ( on 24-June-2018 )
 
-  return sortedStrArr[0].length;
 
-}
+// Alternative Using Math.max - beautiful one-liner
 
-console.log(findLongestWord('The quick brown fox jumped over the lazy dog')); // => 6
+// longestWord2 = str => Math.max.apply(null, str.split(' ').map(i => i.length))
+
+// Even shorter - The new spread operator is a shorter way of writing the apply solution to get the maximum of an array:
+longestWord2 = s => Math.max(...s.split(' ').map(i => i.length))
+
+console.log(longestWord2('The quick brown fox jumped over the lazy dog'));
+
+/* Warning - Official Doc - However, both spread (...) and apply will either fail or return the wrong result if the array has too many elements, because they try to pass the array elements as function parameters. The reduce solution does not have this problem. */
