@@ -8,14 +8,14 @@ Lastly, ['Alien', 'line'], should return true because all of the letters in 'lin
 
 function mutation(arr) {
     for (var i = 0; i < arr[1].length; i++) {
-        if (arr[0].toLowerCase().indexOf(arr[1][i].toLowerCase()) < 0) {
+        if (arr[0].toLowerCase().split('').indexOf(arr[1].split('')[i].toLowerCase()) < 0) {
             return false;
         }
     }
     return true;
 }
 
-console.log(mutation(['hello', 'hEllo']));
+// console.log(mutation(['hello', 'hEllo']));
 
 //Passing Tests
 
@@ -31,3 +31,18 @@ expect(mutation(['ABCcdef', 'Dd'])).to.be.true;
 // the string method indexOf() checks that if each of the arr[1]'s
 // elements are also present in the arr[0]
 // i.e. each of the arr[1]'s element has a non-negative index number in arr[0]
+
+// SOLUTION-2
+mutation2 = arr => {
+
+    if ( (arr[1].length === 0) || (arr[0].length < arr[1].length )) return false;
+
+    a = arr[0].toLowerCase().split('');
+    b = arr[1].toLowerCase().split('');
+
+    return b.every(x => a.indexOf(x) >=0 )
+}
+
+console.log(mutation2(['hello', 'hEllo']));  // => // => true
+console.log(mutation2(['hello', 'hey']));  // => false
+console.log(mutation2(['ABCcdef', 'Dd']));  // => true
