@@ -1,14 +1,13 @@
 /*Return the provided string with the first letter of each word capitalized. For the purpose of this exercise, you should also capitalize connecting words like 'the' and 'of'.*/
 
-
-String.prototype.toTitleCase = function()
-{
-    return this.toLowerCase().replace(/^(.)|\s(.)/g,
-        function($1) { return $1.toUpperCase(); });
+// SOLUTION-1
+String.prototype.toTitleCase = function() {
+    return this.toLowerCase().replace(/^(.)|\s(.)/g, function($1) {
+        return $1.toUpperCase();
+    });
 }
 
 /*
-
 A) (a|b) means a or b so /^(.)|\s(.)/g means /^(.)/ or /\s(.)/
 
 B) /\s(.)/g  - Captures any single character after a space.
@@ -25,6 +24,12 @@ D) $n represents the nth capture group of the regular expression. $1 is the firs
 E) $1 regular expression property can be used as a function argument, can be used inside the function and is updated internally by the replace method after the function executes.
 
 F) So, in the above, I am turning the entire string into lower case and then each regexp match group to upper case using replace function.
+
+G) replace() examples >>> 'night before Xmas'.replace(/xmas/i, 'Christmas')
+will output => night before Christmas
+
+And here, replace() takes a function >> This function is to be invoked to create the new substring to be used to replace the matches to the given regexp or substr.
+
 */
 
 // console.log(("I'm the little tea pot").toTitleCase());
@@ -39,7 +44,7 @@ var expect = chai.expect;
 // expect(("I'm a little tea pot").toTitleCase()).to.equal("I'm A Little Tea Pot");
 // expect(("GREAT MINDS DISCUSS IDEAS").toTitleCase()).to.equal("Great Minds Discuss Ideas");
 
-// Alternative solution Without using regexp
+// SOLUTION-2
 
 titleCase = str => {
 
@@ -55,21 +60,12 @@ titleCase = str => {
 
 // console.log(titleCase("I'm the little tea pot"));
 
-titleCase1 = str => {
+// SOLUTION-3
+titleCase1 = str => str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
 
-    return str.toLowerCase().split(' ').map(word => {
-        return word.charAt(0).toUpperCase() + word.slice(1)
-    }).join(' ')
+console.log(titleCase1("I'm the little tea pot"));
 
-}
-
-// console.log(titleCase1("I'm the little tea pot"));
-
-// Title Case a Sentence With the map() and the replace() Methods
-titleCase2 = str => {
-    return str.toLowerCase().split(' ').map(word => {
-        return word.replace(word[0], word[0].toUpperCase())
-    }).join(' ');
-}
+// SOLUTION-4
+titleCase2 = str => str.toLowerCase().split(' ').map(word => word.replace(word[0], word[0].toUpperCase())).join(' ');
 
 console.log(titleCase2("I'm the little tea pot"));
