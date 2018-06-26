@@ -1,10 +1,7 @@
 /* Problem Statement -
-Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
+Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays. In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array. The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.*/
 
-    In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
-
-    The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.*/
-
+// Straight forward solution
 function uniteSortedArray(arr1, arr2, arr3) {
 
   var finalArr = [];
@@ -17,7 +14,6 @@ function uniteSortedArray(arr1, arr2, arr3) {
   }
 
    return finalArr;
-
 }
 
 // My own learning note - The concat() method itself takes care of the requirement that the final united array should be sorted by their original order and NOT by numerical orders.
@@ -31,13 +27,17 @@ var assert = require('assert');
 assert.deepEqual(uniteSortedArray([1, 3, 2], [5, 2, 1, 4], [2, 1]), [1, 3, 2, 5, 4], 'should return the union of the given arrays');
 assert.deepEqual(uniteSortedArray([1, 3, 2], [1, [5]], [2, [4]]), [1, 3, 2, [5], [4]], 'should not flatten nested arrays'); */
 
-// SOLUTION - 2 - BEAUTIFUL
+// SOLUTION - 2 - BEAUTIFUL - Examples of both creating array on the fly and handing multiple arguments
 
-uniqueSortedMergedArray = (...arr) => {
-    return [].concat.apply([], arr).filter((elem, index, self) => {
-        return self.indexOf(elem) === index
-    })
-}
+/* uniqueSortedMergedArray = (...arr) => {
+  return [].concat(...arr).filter((elem, index, self) => {
+      return self.indexOf(elem) === index
+  })
+} */
+
+// Super Compact
+
+uniqueSortedMergedArray = (...arr) => [].concat(...arr).filter((elem, i, self) => self.indexOf(elem) === i)
 
 console.log(uniqueSortedMergedArray([1, 3, 2], [1, [5]], [2, [4]]));
 

@@ -3,36 +3,43 @@
  The range will be an array of two numbers that will not necessarily be in numerical order.
  */
 
-function smallestCommonMultiple(array) {
-    // First sort the given array in descending order
-    array.sort(function(a, b) {
-        return b - a;
-    });
+/* Key Point - Given the initial value of the multiplier is set to be the largest value in the range - while traversing the range incrementing the multiplier for each loop, once I find that the multiplier is not perfectly divisible with a particular number, no point in incrementing the number by one or by this current element. I have straightaway increment it, by the largest number in the range.
 
-    // Create a newArray with the full range of numbers in between the greatest and the smallest numbers of the original given array.
+For example for the case [1, 5], I am stating off the multiplier to be 5. And while traversing, when I find a multiplier is not divisible with a particular number in the range, I will increment the multiplier by 5.
 
-    var newArray = [];
-    for (var i = array[0]; i >= array[1]; i--) {
-        newArray.push(i);
-    }
+ */
+function smallestCommonMultiple(arr) {
 
-    var commonMultiple;
-    var loopCounter = 1;
-    var incrementalMultiplier;
+    // First sort the given 2-element array in ascending order (largest number at last index position, in this case arr[1])
 
-    // Now iterate through the newArray determining lcm of values
-    do {
-        commonMultiple = newArray[0] * loopCounter * array[1];
-        for (incrementalMultiplier = 2; incrementalMultiplier < newArray.length; incrementalMultiplier++) {
-            if(commonMultiple % newArray[incrementalMultiplier] !== 0) {
-                break;
+    arr.sort();
+
+    let lowestCommonMultiple = 0;
+
+    // smallest multiple can not be lesser than the largest number in the range, so lets initialize this accordingly
+    let multiple = arr[1];
+
+    // Within this while loop, I will run a for loop to check all the numbers in the range, and only after the range is done, I am resetting the value of lowestCommonMultiple. Till then, its value is remaining at 0 ( at which it was initialized )
+
+    while ( lowestCommonMultiple === 0 ) {
+
+        for (let i = arr[0]; i <= arr[1]; i++) {
+
+            if (multiple % i !== 0 ) break;
+
+            // Then below if loop's code, can only get executed, if the 'break' statement was NEVER executed. So, that means, we have made it all the way to the last value (sortedArr[1]) . That in turn means, that this multiple was perfectly divisible by all values in the range. So this should be the final result of lowestCommonMultiple
+
+            if ( i === arr[1]) {
+                lowestCommonMultiple = multiple;
             }
         }
 
-        loopCounter++;
-    } while (incrementalMultiplier < newArray.length);
-
-    return commonMultiple;
+        // After each of the for loop > Increment multiple by the largest number in the range (see above for explanation)
+        multiple += arr[1];
+    }
+    return lowestCommonMultiple;
 }
 
-console.log(smallestCommonMultiple([1, 13]));
+console.log(smallestCommonMultiple([1, 5]));    // should return 60.
+console.log(smallestCommonMultiple([5, 1]));    // should return 60.
+console.log(smallestCommonMultiple([13, 1]));   // should return 360360.
