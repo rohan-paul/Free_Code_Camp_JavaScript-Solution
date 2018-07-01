@@ -5,7 +5,7 @@ My note - The rule to implement the conversion to any roman numeral is based on 
 
  A) First make the initial table for the 13 decimal numbers and corresponding roman numerals
 
- B) For decimal number x (that needs to be converted) - Find the highest decimal value v that is less than or equal to the decimal number x, and its corresponding roman numeral n.
+ B) For decimal number x (that needs to be converted i.e. given in the function argument) - Find the highest decimal value v that is less than or equal to the decimal number x, and its corresponding roman numeral n.
 
  C) Write the roman numeral n that you found and subtract its corresponding decimal value v from x:
  So the new x is = x - v
@@ -20,7 +20,7 @@ function convertToRoman(decNum) {
     var romanNumerals =        ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
     var decimalNumbers =       [1000, 900, 500,  400, 100,  90,  50,  40,   10,   9,    5,   4,    1];
 
-    // In the above arrangement, I am keeping the largest element first, because, so once I find the highest decimal value v that is less than or equal to the decimal number given in the argument - I only reduce the number within the while loop.
+    // In the above arrangement, I am keeping the largest element first, because, once I find the highest decimal value v that is less than or equal to the decimal number given in the argument - I only reduce the number within the while loop.
 
     for (var i = 0; i < romanNumerals.length; i++ ) {
         while (decNum >= decimalNumbers[i]) {
