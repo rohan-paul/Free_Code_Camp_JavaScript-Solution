@@ -18,13 +18,13 @@ Should handle words without vowels.
 
 /* EXPLANATION OF regExpMatch - BUT I AM NO MORE USING IT FOR THE REFACTORED CODE - EARLIER IT WAS PART OF MY default case in the switch statement like below
 
+var regExpMatch = /(^[^a-z]*[^aeiou]*)([aeiou])([a-z_']*)(\w+)/i;
+
 ```
 default :
 str=str.replace(regExpMatch, "$2$3$1ay");
 break
 ```
-
-var regExpMatch = /(^[^a-z]*[^aeiou]*)([aeiou])([a-z_']*)(\w+)/i;
 
 a) Quotation marks or other punctuation around the word are captured in first block of the regexp - "^[^a-z]*"
 
@@ -65,19 +65,18 @@ function translatePigLatin(str) {
 
     var vowelSearchResult = str.search(re);
 
-    var firstVowelIndex = str.indexOf(str.match(re)[0]);
-
-    var regExpMatch = /(^[^a-z]*[^aeiou]*)([aeiou])([a-z_']*)(\w+)/i;
-
     switch (true){
         case (vowelSearchResult == 0):
             str = str+"way";
             break;
+        // now the case when at least on vowel are there in the string
         case (vowelSearchResult > 0):
+            var firstVowelIndex = str.indexOf(str.match(re)[0]);
             str = str.substr(firstVowelIndex) + str.substr(0, firstVowelIndex) + 'ay'
             break;
+        // the case when there's no vowel at all in the string, then just append 'ay' at the end
         case (vowelSearchResult < 0):
-            str = str;
+            str = str + 'ay';
             break;
     }
     return str;
@@ -102,6 +101,9 @@ console.log(translatePigLatin("paragraphs") === "aragraphspay" )
 console.log(translatePigLatin("glove") === "oveglay" )
 console.log(translatePigLatin("algorithm") === "algorithmway" )
 console.log(translatePigLatin("eight") === "eightway" )
+
+// the below is the case of word where there is no vowels
+console.log(translatePigLatin("rbght") === "rbghtay")
 
 /**/
 
