@@ -8,6 +8,7 @@ Third argument is what you will be replacing the second argument with (after).
 
 NOTE: Preserve the case of the original word when you are replacing it. For example if you mean to replace the word 'Book' with the word 'dog', it should be replaced as 'Dog'*/
 
+// SOLUTION-1
 function replace(str, before, after) {
     var splitSentenceArray = str.split(' ');
 
@@ -16,9 +17,10 @@ function replace(str, before, after) {
     } else {
         after = after.substring(0).toLowerCase();
     }
-    var newSplitSentenceArray = splitSentenceArray.splice(splitSentenceArray.indexOf(before), 1, after);
-    var replacedSentence = splitSentenceArray.join(' ');
-    return replacedSentence;
+
+    splitSentenceArray.splice(splitSentenceArray.indexOf(before), 1, after);
+
+    return splitSentenceArray.join(' ');
 }
 
 //console.log(replace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
@@ -34,3 +36,24 @@ var expect = chai.expect;
 expect(replace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped")).to.equal("A quick brown fox Leaped over the lazy dog");
 expect(replace("Life is a war", "war", "Race")).to.equal("Life is a race");
 expect(replace("Let us get back to more Coding", "Coding", "bonfires")).to.equal("Let us get back to more Bonfires");
+
+
+// SOLUTION- 2 - same just changing charAt() with simple str[0]
+
+function replace_2(str, before, after) {
+
+    var splitSentenceArray = str.split(' ');
+
+    if (before[0] === before[0].toUpperCase()) {
+        after = after[0].toUpperCase() + after.slice(1).toLowerCase();
+    } else {
+        after = after.slice(0).toLowerCase();
+    }
+
+    splitSentenceArray.splice(splitSentenceArray.indexOf(before), 1, after);
+
+    return splitSentenceArray.join(' ');
+}
+
+console.log(replace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped"));
+console.log(replace_2("Life is a war", "war", "Race"));
