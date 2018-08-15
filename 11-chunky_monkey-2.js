@@ -11,8 +11,8 @@ chunk = (arr, chunkSize) => {
 
     let chunkedArr = []
 
-    // Now traverse the array, and for each element, check the status of the current chunk.
-    // Note, current chunk will also be the last element of the chunkedArr. As I am building it from left to right
+    // Now traverse the array, and for each element, check the status of the current chunk. which is the nested inner-array in chunkArr
+    // Note, current chunk will also be the last element (i.e. the length - 1 element) of the chunkedArr. As I am building it from left to right.
     // If current chunk is full build the next chunk or else push next element this chunk
 
     for (let i = 0; i < arr.length; i++) {
@@ -30,7 +30,7 @@ chunk = (arr, chunkSize) => {
     return chunkedArr;
 }
 
-console.log(chunk([1, 2, 3, 4, 5], 2))
+// console.log(chunk([1, 2, 3, 4, 5], 2))
 
 
 /* VERY IMP - Note, the line < chunkedArr.push([arr[i]]) >  I am wrapping arr[i] inside an array literal so, that takes cares of pushing the next element as a new inner nested array in this 2-D array structure.
@@ -60,7 +60,9 @@ chunk_2 = (arr, chunkSize) => {
     let numOfChunks = Math.ceil(arr.length / chunkSize);
 
     for (let i = 0; i < numOfChunks; i++) {
-        chunkedArr.push(arr.splice(0, chunkSize));
+        chunkedArr.push(arr.splice(0, chunkSize));  
+        // If I had used above slice() instead of splice() - then would get the ouput - [ [ 1, 2 ], [ 1, 2 ], [ 1, 2 ] ]
+        // Because, the slice() is non-mutative and so the original array length will never be reduced
     }
     return chunkedArr
 }
@@ -86,4 +88,4 @@ chunk_3 = (arr, chunkSize) => {
     return chunkedArr;
 }
 
-console.log(chunk_3([1, 2, 3, 4, 5], 2))
+// console.log(chunk_3([1, 2, 3, 4, 5], 2))
