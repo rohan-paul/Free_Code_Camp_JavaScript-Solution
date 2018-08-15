@@ -46,7 +46,7 @@ arr1.push([4])
 console.log(arr1)  // => [ 1, 2, 3, [ 4 ] ]
 */
 
-/* SOLUTION-2 - Create an empty array to hold the chunks called chunked_arr.
+/* SOLUTION-2 - I like this so very much - Create an empty array to hold the chunks called chunked_arr.
 Calculate the number of chunks
 Loop over the number of chunks
 Cut the array with given size and push into the chunked_arr. */
@@ -69,13 +69,51 @@ chunk_2 = (arr, chunkSize) => {
 
 console.log(chunk_2([1, 2, 3, 4, 5], 2))
 
-/* SOLUTION-3 - Create an empty array to hold the chunks called chunked_arr.
+// SOLUTION-3 - EXACT SAME AS ABOVE, BUT USING ES-6 SYNTAX OF CREATING THE ARRAY with Array.from and then filling up this created array
+// with sliced array from the original
+
+chunk_3 = (arr, chunkSize) => {
+
+    return Array.from({length: Math.ceil(arr.length/chunkSize)}, () => {
+        return arr.splice(0, chunkSize)
+    })
+}
+
+console.log(chunk_3([1, 2, 3, 4, 5], 2))
+
+// SOLUTION-3-USING slice() instead of splice() 
+chunk_3_slice = (arr, chunkSize) => {
+
+    return Array.from({length: Math.ceil(arr.length/chunkSize)}, (_elem, index) => {
+        return arr.slice(index*chunkSize, index*chunkSize + chunkSize)
+    })
+}
+
+console.log(chunk_3_slice([1, 2, 3, 4, 5], 2))
+
+/* EXPLANATION OF THE ABOVE SLICE METHOD - THIS IS ALSO A BEAUTIFUL EXAMPLE IMPLEMENTING THE FUNCTIONALITY OF SPLICE() METHOD WITH SLICE() METHOD
+
+index will take values from 0, 1, 2, 3 .... so for by case of ([1, 2, 3, 4, 5], 2)
+
+// I start with by slicing and returning the sliced-arr for the first 2 elements which are index-0 and index-1. So I start at index-0 and end just before index-2
+1st arr.slice(0 * 2, 0*2 + 2)
+
+// I alredy have picked up the first 2 elements, so now, I want to pick up the next 2 (i.e. the third and fourth element) representedby index-2 and index-3 . So I start at index-2 and end just before index-4
+2nd arr.slice(1*2, 1*2+2)
+
+// I alredy have picked up the first 4 elements, so now, I want to pick up the next 2 (i.e. the fifth and sixth element) representedby index-4 and index-5. So I start at index-4 and end just before index-6
+3rd arr.slice(2*2, 2*2 + 2)
+
+ */
+
+
+/* SOLUTION-4 - Create an empty array to hold the chunks called chunked_arr.
 Declare a variable called index started at 0
 While index is less than length of the given array
    Slice the array from index to size + index and push it into the chunked_arr
    Increment the index with size */
 
-chunk_3 = (arr, chunkSize) => {
+chunk_4 = (arr, chunkSize) => {
 
     let chunkedArr = []
     jumpIndex = 0;
@@ -88,4 +126,4 @@ chunk_3 = (arr, chunkSize) => {
     return chunkedArr;
 }
 
-// console.log(chunk_3([1, 2, 3, 4, 5], 2))
+// console.log(chunk_4([1, 2, 3, 4, 5], 2))
