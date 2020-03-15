@@ -2,16 +2,22 @@
 
 // SOLUTION-1
 function largestOfFour(arr) {
-    var largestNum = [];
-    for (var i = 0; i < arr.length; i++) {
-        var subArray = arr[i];
-        largestNum.push(Math.max(...subArray));
-    }
-    return largestNum;
+  var largestNum = []
+  for (var i = 0; i < arr.length; i++) {
+    var subArray = arr[i]
+    largestNum.push(Math.max(...subArray))
+  }
+  return largestNum
 }
 
-
-console.log(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+console.log(
+  largestOfFour([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1],
+  ]),
+) // [ 5, 27, 39, 1001 ]
 
 //Passing Tests
 /* var chai = require('chai');
@@ -22,12 +28,26 @@ expect(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1
 assert.deepEqual(largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]), [ 5, 27, 39, 1001 ]); */
 
 // SOLUTION-2 - MOST COMPACT
-largestOfFour2 = arr => arr.map(i => ((Math.max(...i))))
+largestOfFour2 = arr => arr.map(i => Math.max(...i))
 
-console.log(largestOfFour2([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+console.log(
+  largestOfFour2([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1],
+  ]),
+)
 
 // SOLUTION-3 - Without using Math.max()
 
-largestOfFour3 = arr => arr.map(i => i.reduce((a, b) => a > b ? a : b ))
+largestOfFour3 = arr => arr.map(i => i.reduce((a, b) => (a > b ? a : b)))
 
-console.log(largestOfFour3([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]));
+console.log(
+  largestOfFour3([
+    [4, 5, 1, 3],
+    [13, 27, 18, 26],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1],
+  ]),
+)

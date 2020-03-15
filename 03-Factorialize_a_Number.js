@@ -1,31 +1,35 @@
 /* Problem Statement - Return the factorial of the provided integer. If the integer is represented with the letter n, a factorial is the product of all positive integers less than or equal to n.*/
 
-  function factorialize (num) {
-    if (num < 0) {
-      return 'undefined';
-    }
-    var fact = 1;
-    for (var i = num; i > 1; i--) {
-      fact *= i;
-    }
-    return fact;
+function factorialize(num) {
+  if (num < 0) {
+    return "undefined"
   }
+  var fact = 1
+  for (var i = num; i > 1; i--) {
+    fact *= i
+  }
+  return fact
+}
 
-  console.log(factorialize(6));
+// console.log(factorialize(6))
 
 // Passing Tests
 
-  var chai = require('chai');
-  var expect = chai.expect;
+var chai = require("chai")
+var expect = chai.expect
 
-  expect(factorialize(5)).to.be.a("Number");
-  expect(factorialize(5)).to.equal(120);
-  expect(factorialize(10)).to.equal(3628800);
+expect(factorialize(5)).to.be.a("Number")
+expect(factorialize(5)).to.equal(120)
+expect(factorialize(10)).to.equal(3628800)
 
 // Alternative Recursive solution to find factorial of a number
 
 function factorial(num) {
-  return (num === 1 ? 1 : num * factorial(num - 1));
+  return num === 1 ? 1 : num * factorial(num - 1)
 }
 
-console.log(factorial(5));
+// console.log(factorial(5)) // 120
+
+const factorial2 = num => (num === 1 ? 1 : factorial2(num - 1) * num)
+
+console.log(factorial2(5)) // 120
